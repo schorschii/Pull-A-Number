@@ -51,7 +51,7 @@ def main():
     buttonSerialPort = configParser['arduino'].get('serial-port', '/dev/ttyACM0')
     buttonSerialBaud = int(configParser['arduino'].get('serial-baud', 9600))
     printerName = configParser['printer'].get('name', 'EPSON')
-    printerPreText = configParser['printer'].get('pre-text', 'Ihr Wartenummer lautet:')
+    printerPreText = configParser['printer'].get('pre-text', 'Ihre Wartenummer lautet:')
     counter = int(configParser['number'].get('counter', 0))
 
     s = serial.Serial(buttonSerialPort, baudrate=buttonSerialBaud)
