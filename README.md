@@ -12,11 +12,18 @@ Simple application which prints an ongoing number on a EPSON thermal printer whe
    serial-port = /dev/pullnumberbutton
 
    [printer]
-   pre-text = Ihr Wartenummer lautet:
    name = EPSON
 
    [number]
    counter = 1
+
+   [pre-text]
+   line1 = ===    Buero 12    ===
+   line2 = Ihr Wartenummer lautet:
+
+   [post-text]
+   random1 = 640k ought to be enough for anybody
+   random2 = new: express shipping for UDP packets
    ```
 
 4. Test if everything works by executing it manually: `python3 pull-a-number.py /etc/pull-a-number.py`.
