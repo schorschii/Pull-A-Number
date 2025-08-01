@@ -50,5 +50,5 @@ Simple application which prints an ongoing number on a EPSON thermal printer whe
    SUBSYSTEMS=="usb", KERNEL=="ttyUSB*", ATTRS{idVendor}=="1208", ATTRS{idProduct}=="0780", ATTRS{serial}=="12345678", SYMLINK+="pullnumberbutton"
    ```
 
-## Ideas
-- simple web interface with overview of current number
+## Web Interface!
+Thanks to advancing technology, we can now offer the business service "draw a number" digitally. Just put the PHP script onto a webserver with PHP installed and open it in your browser.

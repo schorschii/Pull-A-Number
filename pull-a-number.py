@@ -57,21 +57,21 @@ def main():
     buttonSerialPort = configParser['arduino'].get('serial-port', '/dev/ttyACM0')
     buttonSerialBaud = int(configParser['arduino'].get('serial-baud', 9600))
     printerName = configParser['printer'].get('name', 'EPSON')
-    counter = int(configParser['number'].get('counter', 0))
 
     preText = ''
     for key, value in configParser['pre-text'].items():
-        preText += value+"\n"
+        preText += value.replace("\\n","\n")+"\n"
 
     postTexts = []
     for key, value in configParser['post-text'].items():
-        postTexts.append(value)
+        postTexts.append(value.replace("\\n","\n"))
 
     s = serial.Serial(buttonSerialPort, baudrate=buttonSerialBaud)
     while True:
         char = s.read()
         if(char == b'#'):
-            counter += 1
+            configParser.read(configFilePath)
+            counter = int(configParser['number'].get('counter', 0)) + 1
             print('#', counter, ' -> ', printerName)
             printNumber(printerName, preText.strip(), counter, random.choice(postTexts))
             configParser.set('number', 'counter', counter)
