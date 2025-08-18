@@ -12,6 +12,7 @@ if($action == 'getnumber') {
 //if(!isset($_SESSION['counter_ip'])) {
 	$countervalue ++;
 	$ini['number']['counter'] = $countervalue;
+	$ini['number']['address'] = $_SERVER['REMOTE_ADDR'] ?? '?';
 	write_ini_file(COUNTER_FILE, $ini);
 	echo $countervalue; die();
 	//$_SESSION['counter_ip'] = true;
